@@ -57,8 +57,8 @@ jobs:
       - name: Run Buildx (push image)
         if: success()
         run: |
-          docker buildx build \        
-          --platform ${{ matrix.platform }}  \             
-          --tag flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }} \        
-          --file ./Dockerfile \        
+          docker buildx build \
+          --platform ${{ matrix.platform }} \
+          --tag flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }} \
+          --file ./Dockerfile \
           --output type=image,push=true .
