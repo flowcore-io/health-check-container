@@ -1,0 +1,55 @@
+name: Build Docker Image
+
+on:
+  release:
+    types: [ published ]
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.FLOWCORE_MACHINE_GITHUB_TOKEN }}
+          submodules: true
+      - name: Extract version from package.json
+        uses: sergeysova/jq-action@v2
+        id: version
+        with:
+          cmd: 'jq .version package.json -r'
+
+      - name: Show my version
+        run: 'echo "version ${{ steps.version.outputs.value }}"'
+
+      - name: Extract package name from package.json
+        uses: sergeysova/jq-action@v2
+        id: package
+        with:
+          cmd: 'jq .name package.json -r'
+
+      - name: Show package name
+        run: 'echo "name ${{ steps.package.outputs.value }}"'
+
+      - name: Login to github registry
+        uses: actions-hub/docker/login@v1.0.3
+        env:
+          DOCKER_USERNAME: jbiskur
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_SECRET }}
+          DOCKER_REGISTRY_URL: docker.pkg.github.com
+
+      - name: Build :tag
+        if: success()
+        run: docker build -t flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }} .
+
+      - name: Push to docker hub :tag
+        if: success()
+        uses: actions-hub/docker@v1.0.3
+        with:
+          args: push flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }}
