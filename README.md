@@ -6,6 +6,7 @@ A simple service that responds to the /health endpoint depending on how it is co
 
 environment variables that can be set to configure the service
 
+
 | Environment Variable | Description | Type | Default Value | Required |
 |----------------------|-------------|:----:|---------------|:--------:|
 | PORT | The port the service will listen on | `number` | `3000` | |
