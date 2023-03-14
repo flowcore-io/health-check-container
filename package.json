@@ -1,6 +1,6 @@
 {
   "name": "health-check-container",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A simple service that responds to the /health endpoint depending on how it is configured.",
   "author": "",
   "private": true,
