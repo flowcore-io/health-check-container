@@ -46,9 +46,11 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_SECRET }}
 
-      - name: Build and push Docker images
-        uses: docker/build-push-action@v4.0.0
-        with:
-          context: .
-          push: true
-          tags: flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }}
+      - name: Run Buildx (push image)
+        if: success()
+        run: |
+          docker buildx build \        
+          --platform linux/amd64,linux/arm64 \             
+          --tag flowcoreio/${{ steps.package.outputs.value }}:${{ steps.version.outputs.value }} \        
+          --file ./Dockerfile \        
+          --output type=image,push=true .
