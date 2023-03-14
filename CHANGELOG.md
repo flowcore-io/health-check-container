@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/flowcore-io/health-check-container/compare/v1.0.1...v1.1.0) (2023-03-14)
+
+
+### Features
+
+* added arm and amd versions ([01be961](https://github.com/flowcore-io/health-check-container/commit/01be96113d50b63868d8bf7e83498126d089e712))
+
 ## [1.0.1](https://github.com/flowcore-io/health-check-container/compare/v1.0.0...v1.0.1) (2023-03-14)
 
 
