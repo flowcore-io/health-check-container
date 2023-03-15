@@ -17,7 +17,7 @@ FROM node:${version}-alpine as production
 RUN mkdir -p /build
 WORKDIR /build
 COPY package.json pnpm-lock tsconfig*.json src ./
-RUN pnpm --frozen-lockfile --production --network-timeout 1000000
+RUN pnpm --frozen-lockfile --production
 
 FROM node:${version}-alpine as main
 ENV NODE_ENV production
