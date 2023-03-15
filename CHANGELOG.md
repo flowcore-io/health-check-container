@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.1.3](https://github.com/flowcore-io/health-check-container/compare/v1.1.2...v1.1.3) (2023-03-15)
+
+
+### Bug Fixes
+
+* added missing dotenv ([d474845](https://github.com/flowcore-io/health-check-container/commit/d474845a78eba3cdf7866aeeef73dd19529c8155))
+* added pnpm to ci ([d5a7661](https://github.com/flowcore-io/health-check-container/commit/d5a7661536e5546b461938a60ac5341f149dd250))
+* added test params correctly ([187779b](https://github.com/flowcore-io/health-check-container/commit/187779b9a50bb1e652d3d73d0802546f93892e86))
+* removed network timeout from pnpm install ([9da137a](https://github.com/flowcore-io/health-check-container/commit/9da137a971ac4ed7d2ca19afa212c74169ebffa2))
+* switched to pnpm ([f0ad375](https://github.com/flowcore-io/health-check-container/commit/f0ad3756dc2c9ba821b9d9c0a7fd18365399de59))
+* switched to pnpm ([9eb2550](https://github.com/flowcore-io/health-check-container/commit/9eb2550031c1f117bf5e7ee469990472a50aa36b))
+* updated pnpm version ([78aa23f](https://github.com/flowcore-io/health-check-container/commit/78aa23fc9835cb4ef48058e6546217b5cbd25096))
+
 ## [1.1.2](https://github.com/flowcore-io/health-check-container/compare/v1.1.1...v1.1.2) (2023-03-15)
 
 
