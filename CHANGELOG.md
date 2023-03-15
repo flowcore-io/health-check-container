@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/flowcore-io/health-check-container/compare/v1.1.1...v1.1.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* fix multi platform again ([9bc54f4](https://github.com/flowcore-io/health-check-container/commit/9bc54f46b5ca703827b731ab8acf94678d2ea729))
+* fix multi platform again2 ([27ba652](https://github.com/flowcore-io/health-check-container/commit/27ba65244b81bc16d482f1c95d6ce559b633fa3a))
+
 ## [1.1.1](https://github.com/flowcore-io/health-check-container/compare/v1.1.0...v1.1.1) (2023-03-14)
 
 
