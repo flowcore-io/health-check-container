@@ -6,18 +6,20 @@ ARG CODEARTIFACT_AUTH_TOKEN
 ENV CODEARTIFACT_AUTH_TOKEN ${CODEARTIFACT_AUTH_TOKEN}
 ARG CI=false
 ENV CI ${CI}
-RUN mkdir -p /build
+RUN mkdir -p /build && \
+    npm i --location=global pnpm
 WORKDIR /build
 COPY package.json pnpm-lock.yaml nest-cli.json tsconfig*.json ./
 COPY src ./src/
-RUN pnpm --frozen-lockfile
+RUN pnpm install --frozen-lockfile
 RUN pnpm build
 
 FROM node:${version}-alpine as production
-RUN mkdir -p /build
+RUN mkdir -p /build && \
+   npm i --location=global pnpm
 WORKDIR /build
 COPY package.json pnpm-lock.yaml tsconfig*.json src ./
-RUN pnpm --frozen-lockfile --production
+RUN pnpm install --frozen-lockfile --production
 
 FROM node:${version}-alpine as main
 ENV NODE_ENV production
