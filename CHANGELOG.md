@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/flowcore-io/health-check-container/compare/v1.1.4...v1.1.5) (2023-03-15)
+
+
+### Bug Fixes
+
+* fixed dockerfile again ([f309c23](https://github.com/flowcore-io/health-check-container/commit/f309c23ad7c136f1007c97477bf75887144c6a6c))
+
 ## [1.1.4](https://github.com/flowcore-io/health-check-container/compare/v1.1.3...v1.1.4) (2023-03-15)
 
 
