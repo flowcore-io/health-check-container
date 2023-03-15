@@ -26,11 +26,11 @@ jobs:
         uses: actions/setup-node@v3.5.1
         with:
           node-version: "${{ env.NODE_VERSION }}"
-          cache: yarn
-      - name: Yarn install
+          cache: pnpm
+      - name: Pnpm install
         run: |
-          yarn install --frozen-lockfile
+          pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint
+        run: pnpm lint
       - name: Test
-        run: yarn test --runInBand --detectOpenHandles --forceExit
+        run: pnpm test --runInBand --detectOpenHandles --forceExit
