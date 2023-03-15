@@ -8,7 +8,7 @@ ARG CI=false
 ENV CI ${CI}
 RUN mkdir -p /build
 WORKDIR /build
-COPY package.json pnpm-lock nest-cli.json tsconfig*.json ./
+COPY package.json pnpm-lock.yaml nest-cli.json tsconfig*.json ./
 COPY src ./src/
 RUN pnpm --frozen-lockfile
 RUN pnpm build
@@ -16,7 +16,7 @@ RUN pnpm build
 FROM node:${version}-alpine as production
 RUN mkdir -p /build
 WORKDIR /build
-COPY package.json pnpm-lock tsconfig*.json src ./
+COPY package.json pnpm-lock.yaml tsconfig*.json src ./
 RUN pnpm --frozen-lockfile --production
 
 FROM node:${version}-alpine as main
