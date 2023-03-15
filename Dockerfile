@@ -8,16 +8,16 @@ ARG CI=false
 ENV CI ${CI}
 RUN mkdir -p /build
 WORKDIR /build
-COPY package.json yarn.lock nest-cli.json tsconfig*.json ./
+COPY package.json pnpm-lock nest-cli.json tsconfig*.json ./
 COPY src ./src/
-RUN yarn --frozen-lockfile
-RUN yarn build
+RUN pnpm --frozen-lockfile
+RUN pnpm build
 
 FROM node:${version}-alpine as production
 RUN mkdir -p /build
 WORKDIR /build
-COPY package.json yarn.lock tsconfig*.json src ./
-RUN yarn --frozen-lockfile --production
+COPY package.json pnpm-lock tsconfig*.json src ./
+RUN pnpm --frozen-lockfile --production --network-timeout 1000000
 
 FROM node:${version}-alpine as main
 ENV NODE_ENV production
